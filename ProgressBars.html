@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SONNY SARAVILLO</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style> 
+    
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="wrap">  
+    <!-- Begin page content -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse" role="navigation" style="background-color:#2a5b85;">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" >
+                <a class="navbar-brand" href="#" id="headerLogo"><span style="color:white;">SONNY SARAVILLO</span></a>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- End header -->
+    <!-- Page Content -->
+    <div class="container">
+    
+ 
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                   Progress Bar
+                </h3>
+            </div>
+            <div class="panel-body">
+                
+                <!--PROGRESS BAR 1 -->
+                 <span class="subHeader">Progress Bar 1</span>
+                 <div class="progress progress-striped" id="thisBar1">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="bar1">
+                        <span class="progress-value"><span id="reading1"></span>%</span>
+                    </div>
+                </div>
+
+                <!--PROGRESS BAR 2 -->
+                <span class="subHeader">Progress Bar 2</span>
+                 <div class="progress progress-striped" id="thisBar2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="bar2">
+                        <span class="progress-value"><span id="reading2"></span>%</span>
+                    </div>
+                </div>
+
+                <!--PROGRESS BAR 3 -->
+                <span class="subHeader">Progress Bar 3</span>
+                 <div class="progress progress-striped" id="thisBar3">   
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="bar3">
+                          <span class="progress-value"><span id="reading3"></span>%</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="selectProgBar">Select Progress Bar # :</label>
+                    <select class="form-control" id="selectProgBar" onchange="selectedBar()">
+                        <option value="0" data-id="theProgBar0" select>--SELECT PROGRESS BAR--</option>
+                        <option value="1" data-id="theProgBar1" >Progress Bar 1</option>
+                        <option value="2" data-id="theProgBar2">Progress Bar 2</option>
+                        <option value="3" data-id="theProgBar3">Progress Bar 3</option> 
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">  
+
+                         <div class="col-xs-6 col-sm-3 btnBox">
+                             <input type="button" name="progress" class="btn btn-primary mainBtns btn-lg" onclick="putVal(this)"  value="" id="inputBtnVal1">   
+                         </div>
+                          
+                         <div class="col-xs-6 col-sm-3 btnBox">
+                            <input type="button" name="progress" class="btn btn-primary mainBtns  btn-lg"  onclick="putVal(this)"  value="" id="inputBtnVal2">  
+                         </div>
+
+                         <div class="col-xs-6 col-sm-3 btnBox">
+                            <input type="button" name="progress" class="btn btn-primary mainBtns  btn-lg"  onclick="putVal(this)" value="" id="inputBtnVal3"> 
+                         </div>
+
+                        <div class="col-xs-6 col-sm-3 btnBox">
+                           <input type="button" name="progress" class="btn btn-primary mainBtns  btn-lg"  onclick="putVal(this)"  value="" id="inputBtnVal4">  
+                        </div>
+                          
+                    </div>
+                </div> 
+
+            </div> 
+        </div>
+ 
+
+    </div> 
+    <!-- /.container -->
+    <div id="push"></div>
+</div>
+
+    <div id="footer">
+        <div class="container">
+        <p class="muted"><a href="#">Privacy/Cookies | Legal Notices & Tradearks | Report Noncompliance |</a> © 2016 SARAVILLO All rights reserved.</p>
+        </div>
+    </div>  
+
+    <!--max limit -->
+    <div id="thisModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Alert!</h4>
+            </div>
+            <div class="modal-body">
+                <p>This Progress bar alredy reached its limit!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="pageRefresh()">OK</button>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--100 percent reached-->
+    <div id="thisModal2" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Alert!</h4>
+            </div>
+            <div class="modal-body">
+                <p>This bar already reached 100%, You can still continue and reach its max limit!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            </div>
+            </div>
+
+        </div>
+    </div>
+    
+        
+    <input type="hidden" id="curBarWidth">
+    <input type="hidden" id="curSelectBar"> 
+    <input type="hidden" id="curLimit"> 
+    <input type="hidden" id="curRdbar1">
+    <input type="hidden" id="curRdbar2">
+    <input type="hidden" id="curRdbar3">
+    
+  
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="js/script.js"></script>
+
+    <script type="text/JavaScript">
+        $(document).ready(function (){
+
+        //USE THIS 
+        // API URL LINK ---> http://pb-api.herokuapp.com/bars
+        // USE THIS DATA ---> {"buttons":[26,11,-10,-49],"bars":[45,53,79],"limit":170}  
+
+
+            // GET DATA 
+            $.get("http://pb-api.herokuapp.com/bars", function( data ) {
+                // $( ".result" ).html( data );
+                console.log(data);
+                console.log( "Load was performed." ); 
+
+                var objBtns = data.buttons
+                var objBars = data.bars
+                var objLimit = data.limit
+
+                console.log(objBtns);
+                var valObjBtn = objBtns[0];
+                var valObjBtn1 = objBtns[1];
+                var valObjBtn2 = objBtns[2];
+                var valObjBtn3 = objBtns[3]; 
+                $('#inputBtnVal1').val(valObjBtn);
+                $('#inputBtnVal2').val(valObjBtn1); 
+                $('#inputBtnVal3').val(valObjBtn2);
+                $('#inputBtnVal4').val(valObjBtn3);
+    
+    
+                console.log(objBars); 
+                var valObjBars = objBars[0];
+                var valObjBars1 = objBars[1];
+                var valObjBars2 = objBars[2];   
+                $('.mainBtns').prop("disabled",true); 
+                $('#bar1').css('width', valObjBars+'%'); 
+                $('#curRdbar1').val(valObjBars);
+                // $('#bar1').attr('aria-valuenow','45%');
+
+                $('#bar2').css('width', valObjBars1+'%');
+                $('#curRdbar2').val(valObjBars1);
+                // $('#bar2').attr('aria-valuenow','53%');
+
+                $('#bar3').css('width', valObjBars2+'%');
+                $('#curRdbar3').val(valObjBars2);
+                // $('#bar3').attr('aria-valuenow','79%');  
+  
+                console.log(objLimit);  
+                var uniLimit = $('#curLimit').val(objLimit);
+                
+    
+                //ONLOAD  CURRENT 
+                var pBar1 = document.getElementById('bar1');
+                var pBarOne = pBar1.style.width;
+                var newXpBarOne = pBarOne.substring(0, pBarOne.length -1);
+                // console.log('Progress Bar one current - > ' +newXpBarOne); 
+
+                var pBar2 = document.getElementById('bar2');
+                var pBarTwo = pBar2.style.width;
+                var newXpBarTwo = pBarTwo.substring(0, pBarTwo.length -1);
+                // console.log('Progress Bar two current - > ' +newXpBarTwo); 
+
+                var pBar3 = document.getElementById('bar3');
+                var pBarThree = pBar3.style.width;
+                var newXpBarThree = pBarThree.substring(0, pBarThree.length -1);
+                // console.log('Progress Bar three current - > ' +newXpBarThree); 
+
+
+                window.load = colorCode1(newXpBarOne);  
+                window.load = colorCode2(newXpBarTwo);  
+                window.load = colorCode3(newXpBarThree);   
+                window.load = displayPercent();
+                
+            });
+   
+        });  
+    </script>  
+
+</body>
+
+</html>
